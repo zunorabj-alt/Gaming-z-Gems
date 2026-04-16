@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gaming-z Gems</title>
-
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -72,7 +71,7 @@
 <div class="overlay" id="overlay" onclick="closeForm()"></div>
 
 <!-- POPUP FORM -->
-<form action="https://formspree.io/f/xbdqglgd" method="POST" class="form-box popup" id="formBox">
+<form action="https://formspree.io/f/xbdqglgd" method="POST" class="form-box popup" id="formBox" onsubmit="return sendOrder(event)">
 
 <h2>🎮 FORMULAIRE DE COMMANDE</h2>
 
@@ -88,17 +87,25 @@ Nom : JEAN FREDERIC
 <input type="hidden" name="product" id="productInput">
 
 <p class="msg">
-⚡ Livraison rapide après confirmation du paiement.  
-Merci pour votre confiance 🎮🔥
+⚡ Livraison rapide après confirmation 🎮🔥
 </p>
 
 <button type="submit">Envoyer la commande</button>
 
 </form>
 
+<!-- SUCCESS POPUP -->
+<div class="success" id="successBox">
+    <div class="success-content">
+        <h2>✔ COMMANDE ENVOYÉE</h2>
+        <p>Votre commande est reçue 🎮🔥</p>
+        <p>Traitement en cours...</p>
+    </div>
+</div>
+
 </div>
 
 <script src="script.js"></script>
 
 </body>
-                                                                  </html>
+  </html>
