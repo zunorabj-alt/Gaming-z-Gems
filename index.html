@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gaming-z Gems</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,7 +15,6 @@
 <header>
 <div>🎮 Gaming-z Gems</div>
 <div>G-z G</div>
-
 <div class="back" onclick="goBack()">← Retour</div>
 </header>
 
@@ -68,17 +68,31 @@
 
 </div>
 
-<!-- FORM -->
-<form action="https://formspree.io/f/xbdqglgd" method="POST" class="form-box" id="formBox">
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeForm()"></div>
 
-<h3>Commande</h3>
+<!-- POPUP FORM -->
+<form action="https://formspree.io/f/xbdqglgd" method="POST" class="form-box popup" id="formBox">
+
+<h2>🎮 FORMULAIRE DE COMMANDE</h2>
+
+<p class="info">
+Numéro : 032 97 683 76<br>
+Nom : JEAN FREDERIC
+</p>
 
 <input type="text" name="uid" placeholder="UID du compte" required>
 <input type="text" name="ref" placeholder="Référence paiement" required>
+<input type="text" name="pseudo" placeholder="Pseudo Free Fire / PUBG" required>
 
 <input type="hidden" name="product" id="productInput">
 
-<button type="submit">Envoyer</button>
+<p class="msg">
+⚡ Livraison rapide après confirmation du paiement.  
+Merci pour votre confiance 🎮🔥
+</p>
+
+<button type="submit">Envoyer la commande</button>
 
 </form>
 
@@ -87,4 +101,4 @@
 <script src="script.js"></script>
 
 </body>
-                                                                                             </html>
+                                                                  </html>
