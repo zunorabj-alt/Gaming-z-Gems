@@ -199,3 +199,26 @@ body.light{
 background:#f5f7ff;
 color:#0f172a;
 }
+
+/* FACEBOOK ALWAYS ON TOP */
+.fb-icon{
+position:fixed;
+bottom:15px;
+left:15px;
+width:42px;
+height:42px;
+background:#1877f2;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999; /* 👈 important: tsy ho takona intsony */
+}
+
+/* extra safety */
+.container,
+.grid,
+.card{
+position:relative;
+z-index:1;
+}
