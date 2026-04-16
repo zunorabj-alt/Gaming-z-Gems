@@ -222,3 +222,38 @@ z-index:9999; /* 👈 important: tsy ho takona intsony */
 position:relative;
 z-index:1;
 }
+
+  /* OVERLAY (fond noir) */
+.overlay{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.75);
+z-index:9998; /* 👈 ambony be */
+}
+
+/* POPUP FORM */
+.popup{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#0f172a;
+width:92%;
+max-width:450px;
+padding:22px;
+border-radius:16px;
+z-index:9999; /* 👈 tokony ho TOP layer */
+}
+
+/* SAFETY: TARIFS tsy ho ambony popup */
+.container{
+position:relative;
+z-index:1;
+}
+
+.games{
+position:relative;
+z-index:1;
+  }
