@@ -2,14 +2,13 @@ function showGame() {
     const games = document.querySelector(".games");
     const tarifs = document.getElementById("tarifs");
 
-    // animation miala icons
+    // smooth disappear
     games.style.opacity = "0";
-    games.style.transform = "scale(0.9)";
+    games.style.transform = "scale(0.95)";
 
     setTimeout(() => {
         games.style.display = "none";
 
-        // aseho tarifs
         tarifs.style.display = "block";
         tarifs.style.opacity = "0";
 
@@ -18,7 +17,7 @@ function showGame() {
             tarifs.classList.add("fade");
         }, 50);
 
-    }, 300);
+    }, 250);
 }
 
 function openForm(product) {
@@ -33,6 +32,7 @@ function sendMail() {
     const ref = document.getElementById("ref").value;
 
     const subject = "Commande Gaming-z Gems";
+
     const body =
         "Produit: " + window.selectedProduct +
         "%0AUID: " + uid +
@@ -40,4 +40,4 @@ function sendMail() {
 
     window.location.href =
         "mailto:zunorabj@gmail.com?subject=" + subject + "&body=" + body;
-}
+                                        }
