@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0b0f1a;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background: #020617;
+}
+
+.logo {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.games {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.game {
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.game img {
+    width: 120px;
+}
+
+.game:hover {
+    transform: scale(1.1);
+}
+
+.fade {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform: translateY(20px);}
+    to {opacity:1; transform: translateY(0);}
+}
+
+.container {
+    display: none;
+    padding: 20px;
+}
+
+.card {
+    background: #1e293b;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.price {
+    color: #22c55e;
+    font-weight: bold;
+}
+
+.form-box {
+    display: none;
+    padding: 20px;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    background: #22c55e;
+    border: none;
+    cursor: pointer;
+  }
