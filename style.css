@@ -203,3 +203,36 @@ body.light .popup input{
 background:#e2e8f0;
 color:#0f172a;
   }
+
+/* ===== REDMAGIC BACKGROUND THEME (ADD ONLY - DO NOT REMOVE ANYTHING ABOVE) ===== */
+
+/* DARK MODE (DEFAULT) */
+body{
+background: radial-gradient(circle at top,
+#1a0000 0%,
+#05010a 40%,
+#000000 100%);
+}
+
+/* glow overlay */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%, rgba(255,0,60,0.15), transparent 40%),
+radial-gradient(circle at 80% 80%, rgba(0,255,200,0.08), transparent 40%);
+z-index:-1;
+pointer-events:none;
+}
+
+/* LIGHT MODE ONLY OVERRIDE */
+body.light{
+background: linear-gradient(135deg,#f5f7ff,#ffffff);
+}
+
+body.light::before{
+background:
+radial-gradient(circle at 20% 20%, rgba(255,0,60,0.08), transparent 40%),
+radial-gradient(circle at 80% 80%, rgba(0,120,255,0.08), transparent 40%);
+  }
