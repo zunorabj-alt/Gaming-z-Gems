@@ -1,4 +1,3 @@
-/* RESET */
 *{
 margin:0;
 padding:0;
@@ -27,15 +26,14 @@ padding:10px;
 background:#020617;
 }
 
-/* BACK BUTTON */
+/* BACK */
 .back{
 color:#22c55e;
 font-weight:bold;
 cursor:pointer;
-font-size:13px;
 }
 
-/* GAME ICONS */
+/* ICONS */
 .games{
 display:flex;
 flex-direction:column;
@@ -47,15 +45,8 @@ margin-top:30px;
 .game img{
 width:150px;
 border-radius:12px;
-cursor:pointer;
 }
 
-.game p{
-text-align:center;
-margin-top:5px;
-}
-
-/* TARIFS CONTAINER */
 .container{
 display:none;
 padding:10px;
@@ -68,7 +59,7 @@ grid-template-columns:1fr 1fr;
 gap:8px;
 }
 
-/* CARDS */
+/* CARD */
 .card{
 background:#1e293b;
 padding:10px;
@@ -80,12 +71,6 @@ display:flex;
 flex-direction:column;
 align-items:center;
 gap:5px;
-
-transition:0.2s;
-}
-
-.card:hover{
-transform:scale(1.03);
 }
 
 .card img{
@@ -93,125 +78,61 @@ width:45px;
 height:45px;
 }
 
-.card p{
-font-size:12px;
-font-weight:bold;
-}
-
 .price{
 color:#22c55e;
 font-weight:bold;
-font-size:12px;
 }
 
-/* TITLES */
-h2{
-font-size:13px;
-margin:10px 5px;
-opacity:0.7;
-}
-
-/* OVERLAY */
+/* POPUP */
 .overlay{
 display:none;
 position:fixed;
 inset:0;
 background:rgba(0,0,0,0.75);
-backdrop-filter:blur(4px);
 z-index:9;
 }
 
-/* POPUP FORM (BIG + GAMING PRO) */
 .popup{
 display:none;
 position:fixed;
 top:50%;
 left:50%;
-transform:translate(-50%,-50%) scale(0.95);
+transform:translate(-50%,-50%);
 background:#0f172a;
 width:92%;
 max-width:450px;
 padding:22px;
 border-radius:16px;
 z-index:10;
-
-box-shadow:0 0 25px rgba(34,197,94,0.25);
-animation:pop 0.25s ease forwards;
 }
 
-/* ANIMATION */
-@keyframes pop{
-from{
-opacity:0;
-transform:translate(-50%,-50%) scale(0.85);
-}
-to{
-opacity:1;
-transform:translate(-50%,-50%) scale(1);
-}
-}
-
-/* FORM TITLE */
-.popup h2{
-font-size:16px;
-text-align:center;
-margin-bottom:10px;
-}
-
-/* INFO */
-.info{
-font-size:12px;
-color:#94a3b8;
-text-align:center;
-margin-bottom:10px;
-}
-
-/* INPUTS */
 .popup input{
 width:100%;
 padding:12px;
 margin:7px 0;
 border-radius:8px;
 border:none;
-outline:none;
-font-size:14px;
 background:#1e293b;
 color:white;
 }
 
-/* BUTTON */
 .popup button{
 width:100%;
 padding:12px;
-margin-top:10px;
-background:linear-gradient(90deg,#22c55e,#16a34a);
+background:#22c55e;
 border:none;
 border-radius:10px;
 font-weight:bold;
-font-size:15px;
-cursor:pointer;
 }
 
-/* MESSAGE */
-.msg{
-font-size:12px;
-text-align:center;
-margin-top:8px;
-color:#38bdf8;
-}
-
-/* SUCCESS POPUP */
+/* SUCCESS */
 .success{
 display:none;
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+inset:0;
 background:rgba(0,0,0,0.7);
 justify-content:center;
 align-items:center;
-z-index:20;
 }
 
 .success-content{
@@ -219,11 +140,47 @@ background:#0f172a;
 padding:20px;
 border-radius:12px;
 text-align:center;
-width:85%;
-max-width:300px;
 }
 
-.success-content h2{
-color:#22c55e;
-font-size:16px;
-    }
+/* 🌙 THEME BUTTON */
+.theme-toggle{
+position:fixed;
+top:10px;
+right:10px;
+background:#1e293b;
+padding:8px 10px;
+border-radius:50%;
+cursor:pointer;
+z-index:50;
+}
+
+/* 📘 FACEBOOK */
+.fb-icon{
+position:fixed;
+bottom:15px;
+left:15px;
+background:#1877f2;
+color:white;
+padding:10px 12px;
+border-radius:50%;
+text-decoration:none;
+z-index:50;
+}
+
+/* LIGHT MODE */
+body.light{
+background:#f1f5f9;
+color:#0f172a;
+}
+
+body.light header,
+body.light .card,
+body.light .popup{
+background:#ffffff;
+color:#0f172a;
+}
+
+body.light .popup input{
+background:#e2e8f0;
+color:#0f172a;
+}
