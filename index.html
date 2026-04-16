@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gaming-z Gems</title>
-
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,26 +16,25 @@
 <div>G-z G</div>
 </header>
 
+<!-- ICONS -->
 <div class="games">
-
-<!-- FREE FIRE -->
 <div class="game" onclick="showGame()">
 <img src="raf,360x360,075,t,fafafa_ca443f4786.jpg">
 <p>Free Fire</p>
 </div>
 
-<!-- PUBG -->
 <div class="game" onclick="showGame()">
 <img src="158789020-unavailable-stamp-unavailable-sign-round-grunge-label.jpg">
 <p>PUBG</p>
 </div>
-
 </div>
 
+<!-- TARIFS -->
 <div class="container" id="tarifs">
 
 <h2>TOP UP</h2>
 <div class="grid">
+
 <div class="card" onclick="openForm('110💎 - 4 900 Ar')">110💎 <span class="price">4 900 Ar</span></div>
 <div class="card" onclick="openForm('231💎 - 9 600 Ar')">231💎 <span class="price">9 600 Ar</span></div>
 <div class="card" onclick="openForm('341💎 - 13 980 Ar')">341💎 <span class="price">13 980 Ar</span></div>
@@ -49,6 +47,7 @@
 <div class="card" onclick="openForm('1419💎 - 55 700 Ar')">1419💎 <span class="price">55 700 Ar</span></div>
 <div class="card" onclick="openForm('1650💎 - 65 430 Ar')">1650💎 <span class="price">65 430 Ar</span></div>
 <div class="card" onclick="openForm('2420💎 - 92 730 Ar')">2420💎 <span class="price">92 730 Ar</span></div>
+
 </div>
 
 <h2>LEVEL UP</h2>
@@ -67,16 +66,23 @@
 
 </div>
 
-<div class="form-box" id="formBox">
+<!-- FORM -->
+<form action="https://formspree.io/f/xbdqglgd" method="POST" class="form-box" id="formBox">
+
 <h3>Commande</h3>
-<input type="text" id="uid" placeholder="UID">
-<input type="text" id="ref" placeholder="Référence paiement">
-<button onclick="sendMail()">Envoyer</button>
-</div>
+
+<input type="text" name="uid" placeholder="UID du compte" required>
+<input type="text" name="ref" placeholder="Référence paiement" required>
+
+<input type="hidden" name="product" id="productInput">
+
+<button type="submit">Envoyer</button>
+
+</form>
 
 </div>
 
 <script src="script.js"></script>
 
 </body>
-                                                               </html>
+                                                                                             </html>
