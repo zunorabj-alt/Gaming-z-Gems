@@ -1,4 +1,8 @@
 function showGame() {
+    // afenina icons
+    document.querySelector(".games").style.display = "none";
+
+    // aseho tarifs
     let t = document.getElementById("tarifs");
     t.style.display = "block";
     t.classList.add("fade");
