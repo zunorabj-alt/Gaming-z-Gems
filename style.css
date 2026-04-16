@@ -15,16 +15,33 @@ width:100%;
 max-width:400px;
 }
 
-/* HEADER */
+/* HEADER FIX */
 header{
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
 padding:10px;
 background:#020617;
+position:relative;
 }
 
-/* BACK CENTER FIX */
+/* LOGO */
+.logo{
+width:34px;
+height:34px;
+border-radius:50%;
+object-fit:cover;
+}
+
+/* TITLE CENTER */
+.title{
+flex:1;
+text-align:center;
+font-size:14px;
+font-weight:bold;
+}
+
+/* BACK */
 .back{
 color:#22c55e;
 font-weight:bold;
@@ -32,11 +49,11 @@ cursor:pointer;
 font-size:13px;
 }
 
-/* THEME BUTTON (center fix away from back) */
+/* THEME BUTTON FIX LEFT SHIFT */
 .theme-toggle{
 position:fixed;
 top:10px;
-right:55px; /* 👈 miala kely amin'ny Facebook */
+right:12px;
 background:#1e293b;
 padding:8px 10px;
 border-radius:50%;
@@ -49,15 +66,14 @@ z-index:50;
 position:fixed;
 bottom:15px;
 left:15px;
-width:40px;
-height:40px;
+width:42px;
+height:42px;
 background:#1877f2;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
 z-index:50;
-box-shadow:0 0 10px rgba(0,0,0,0.3);
 }
 
 .fb-icon svg{
@@ -186,4 +202,4 @@ color:#0f172a;
 body.light .popup input{
 background:#e2e8f0;
 color:#0f172a;
-}
+  }
