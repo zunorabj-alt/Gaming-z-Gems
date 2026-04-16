@@ -87,3 +87,15 @@ button {
     background: #22c55e;
     color: black;
 }
+
+.back {
+    color: #22c55e;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+.back:active {
+    transform: scale(0.9);
+}
