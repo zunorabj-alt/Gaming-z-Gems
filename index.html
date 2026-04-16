@@ -2,15 +2,19 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gaming-z Gems</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<div class="wrapper">
+
 <header>
 <div>🎮 Gaming-z Gems</div>
-<div class="logo">G-z G</div>
+<div>G-z G</div>
 </header>
 
 <div class="games">
@@ -57,18 +61,18 @@
 <div class="card" onclick="openForm('Monthly - 47 000 Ar')">Monthly <span class="price">47 000 Ar</span></div>
 </div>
 
-  </div>
-  
+</div>
+
 <div class="form-box" id="formBox">
 <h3>Commande</h3>
-
-<input type="text" id="uid" placeholder="UID du compte">
+<input type="text" id="uid" placeholder="UID">
 <input type="text" id="ref" placeholder="Référence paiement">
-
 <button onclick="sendMail()">Envoyer</button>
+</div>
+
 </div>
 
 <script src="script.js"></script>
 
 </body>
-  </html>
+</html>
