@@ -1,13 +1,13 @@
 function showGame() {
-    const tarifs = document.getElementById("tarifs");
-    tarifs.style.display = "block";
-    tarifs.classList.add("fade");
+    let t = document.getElementById("tarifs");
+    t.style.display = "block";
+    t.classList.add("fade");
 }
 
 function openForm(product) {
-    const form = document.getElementById("formBox");
-    form.style.display = "block";
-    form.classList.add("fade");
+    let f = document.getElementById("formBox");
+    f.style.display = "block";
+    f.classList.add("fade");
     window.selectedProduct = product;
 }
 
@@ -21,5 +21,5 @@ function sendMail() {
                "%0ARéférence: " + ref;
 
     window.location.href =
-        "mailto:tonemail@gmail.com?subject=" + subject + "&body=" + body;
+    "mailto:tonemail@gmail.com?subject=" + subject + "&body=" + body;
 }
