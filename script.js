@@ -3,29 +3,23 @@ function showGame() {
 
     const t = document.getElementById("tarifs");
     t.style.display = "block";
-    t.classList.add("fade");
-
-    // aseho retour
-    document.querySelector(".back").style.display = "block";
 }
 
 function goBack() {
-    // miverina icons
     document.querySelector(".games").style.display = "flex";
-
-    // afenina tarifs
     document.getElementById("tarifs").style.display = "none";
-
-    // afenina form
-    document.getElementById("formBox").style.display = "none";
-
-    // afenina retour
-    document.querySelector(".back").style.display = "none";
+    closeForm();
 }
 
 function openForm(product) {
-    const form = document.getElementById("formBox");
-    form.style.display = "block";
-    form.classList.add("fade");
+    document.getElementById("formBox").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+
     window.selectedProduct = product;
+    document.getElementById("productInput").value = product;
+}
+
+function closeForm() {
+    document.getElementById("formBox").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
 }
