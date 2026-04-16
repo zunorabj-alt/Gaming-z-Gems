@@ -1,8 +1,5 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:Arial;
@@ -22,15 +19,50 @@ max-width:400px;
 header{
 display:flex;
 justify-content:space-between;
+align-items:center;
 padding:10px;
 background:#020617;
 }
 
-/* BACK */
+/* BACK CENTER FIX */
 .back{
 color:#22c55e;
 font-weight:bold;
 cursor:pointer;
+font-size:13px;
+}
+
+/* THEME BUTTON (center fix away from back) */
+.theme-toggle{
+position:fixed;
+top:10px;
+right:55px; /* 👈 miala kely amin'ny Facebook */
+background:#1e293b;
+padding:8px 10px;
+border-radius:50%;
+cursor:pointer;
+z-index:50;
+}
+
+/* FACEBOOK REAL ICON */
+.fb-icon{
+position:fixed;
+bottom:15px;
+left:15px;
+width:40px;
+height:40px;
+background:#1877f2;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:50;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+.fb-icon svg{
+width:20px;
+height:20px;
 }
 
 /* ICONS */
@@ -47,12 +79,9 @@ width:150px;
 border-radius:12px;
 }
 
-.container{
-display:none;
-padding:10px;
-}
+/* TARIFS */
+.container{display:none;padding:10px;}
 
-/* GRID */
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -66,21 +95,18 @@ padding:10px;
 border-radius:10px;
 text-align:center;
 cursor:pointer;
-
 display:flex;
 flex-direction:column;
 align-items:center;
 gap:5px;
 }
 
-.card img{
-width:45px;
-height:45px;
-}
+.card img{width:45px;height:45px;}
 
 .price{
 color:#22c55e;
 font-weight:bold;
+font-size:12px;
 }
 
 /* POPUP */
@@ -106,6 +132,7 @@ border-radius:16px;
 z-index:10;
 }
 
+/* INPUT */
 .popup input{
 width:100%;
 padding:12px;
@@ -116,6 +143,7 @@ background:#1e293b;
 color:white;
 }
 
+/* BUTTON */
 .popup button{
 width:100%;
 padding:12px;
@@ -140,31 +168,6 @@ background:#0f172a;
 padding:20px;
 border-radius:12px;
 text-align:center;
-}
-
-/* 🌙 THEME BUTTON */
-.theme-toggle{
-position:fixed;
-top:10px;
-right:10px;
-background:#1e293b;
-padding:8px 10px;
-border-radius:50%;
-cursor:pointer;
-z-index:50;
-}
-
-/* 📘 FACEBOOK */
-.fb-icon{
-position:fixed;
-bottom:15px;
-left:15px;
-background:#1877f2;
-color:white;
-padding:10px 12px;
-border-radius:50%;
-text-decoration:none;
-z-index:50;
 }
 
 /* LIGHT MODE */
