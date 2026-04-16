@@ -4,11 +4,28 @@ function showGame() {
     const t = document.getElementById("tarifs");
     t.style.display = "block";
     t.classList.add("fade");
+
+    // aseho retour
+    document.querySelector(".back").style.display = "block";
+}
+
+function goBack() {
+    // miverina icons
+    document.querySelector(".games").style.display = "flex";
+
+    // afenina tarifs
+    document.getElementById("tarifs").style.display = "none";
+
+    // afenina form
+    document.getElementById("formBox").style.display = "none";
+
+    // afenina retour
+    document.querySelector(".back").style.display = "none";
 }
 
 function openForm(product) {
-    document.getElementById("formBox").style.display = "block";
+    const form = document.getElementById("formBox");
+    form.style.display = "block";
+    form.classList.add("fade");
     window.selectedProduct = product;
-
-    document.getElementById("productInput").value = product;
 }
