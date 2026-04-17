@@ -1,8 +1,3 @@
-// ===== GENERATE ID UNIQUE =====
-function generateOrderID(){
-return "GZG-" + Date.now() + "-" + Math.floor(Math.random()*1000);
-}
-
 // ===== OPEN FORM =====
 function openForm(product){
 document.getElementById("formBox").style.display="block";
@@ -33,35 +28,37 @@ function toggleTheme(){
 document.body.classList.toggle("light");
 }
 
+// ===== GENERATE ID =====
+function generateOrderID(){
+return "GZG-" + Date.now() + "-" + Math.floor(Math.random()*1000);
+}
+
 // ===== ENVOI COMMANDE =====
 function sendOrder(e){
-e.preventDefault();
+
+// ❗ tsy atao preventDefault → Formspree no mandefa mail normal
 
 let form = e.target;
+
+// mamorona ID
 let orderID = generateOrderID();
 
-// AJOUT ID AO FORM
+// apetraka ao form
 let input = document.createElement("input");
-input.type="hidden";
-input.name="order_id";
-input.value=orderID;
+input.type = "hidden";
+input.name = "order_id";
+input.value = orderID;
 form.appendChild(input);
 
-// ASEHO REÇU
-document.getElementById("successBox").style.display="flex";
+// aseho reçu (instant)
+document.getElementById("successBox").style.display = "flex";
 document.getElementById("orderMsg").innerHTML =
 "Commande reçue 🎮🔥<br><br>ID: <b>"+orderID+"</b>";
 
-// ALEFA EMAIL
-fetch(form.action,{
-method:"POST",
-body:new FormData(form),
-headers:{ 'Accept':'application/json' }
-});
-
-// FERMER FORM
+// manidy popup
 document.getElementById("formBox").style.display="none";
 document.querySelector(".overlay").style.display="none";
 
-return false;
-  }
+// 👉 avela handeha normal ny form (return true)
+return true;
+}
