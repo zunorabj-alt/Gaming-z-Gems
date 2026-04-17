@@ -1,20 +1,20 @@
 /* LOADING */
 function showLoading(text, cb){
-let l = document.getElementById("loadingScreen");
-let t = document.getElementById("loadingText");
+let l=document.getElementById("loadingScreen");
+let t=document.getElementById("loadingText");
 
-t.innerText = text || "Chargement...";
+t.innerText=text||"Chargement...";
 l.style.display="flex";
 
 setTimeout(()=>{
 l.style.display="none";
-if(cb) cb();
+if(cb)cb();
 },600);
 }
 
 /* GAME */
 function showGame(){
-showLoading("Ouverture...", ()=>{
+showLoading("Ouverture des tarifs...",()=>{
 document.querySelector(".games").style.display="none";
 document.getElementById("tarifs").style.display="grid";
 });
@@ -22,16 +22,16 @@ document.getElementById("tarifs").style.display="grid";
 
 /* OPEN FORM */
 function openForm(product){
-showLoading("Chargement commande...", ()=>{
+showLoading("Préparation commande...",()=>{
 document.getElementById("formBox").classList.add("show");
 document.querySelector(".overlay").style.display="block";
-document.getElementById("productInput").value = product;
+document.getElementById("productInput").value=product;
 });
 }
 
 /* CLOSE */
 function closeForm(){
-showLoading("Fermeture...", ()=>{
+showLoading("Fermeture...",()=>{
 document.getElementById("formBox").classList.remove("show");
 document.querySelector(".overlay").style.display="none";
 });
@@ -49,19 +49,20 @@ return "GZG-"+Date.now();
 
 /* SEND */
 function sendOrder(e){
-let form = e.target;
 
-let uid = form.uid.value;
-let pseudo = form.pseudo.value;
-let ref = form.ref.value;
-let product = document.getElementById("productInput").value;
+let form=e.target;
 
-let id = generateOrderID();
+let uid=form.uid.value;
+let pseudo=form.pseudo.value;
+let ref=form.ref.value;
+let product=document.getElementById("productInput").value;
+
+let id=generateOrderID();
 
 document.getElementById("successBox").style.display="flex";
 
-document.getElementById("orderMsg").innerHTML =
-"ID: "+id+"<br>UID:"+uid+"<br>Pseudo:"+pseudo+"<br>Produit:"+product;
+document.getElementById("orderMsg").innerHTML=
+"ID:"+id+"<br>UID:"+uid+"<br>Pseudo:"+pseudo+"<br>Produit:"+product;
 
 document.getElementById("formBox").classList.remove("show");
 document.querySelector(".overlay").style.display="none";
