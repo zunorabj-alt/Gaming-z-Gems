@@ -110,7 +110,7 @@
 <!-- OVERLAY -->
 <div class="overlay" onclick="closeForm()"></div>
 
-<!-- FORM -->
+  <!-- FORM -->
 <form action="https://formspree.io/f/xbdqglgd" method="POST"
 class="popup" id="formBox" onsubmit="return sendOrder(event)">
 
@@ -133,15 +133,10 @@ Nom : JEAN FREDERIC
 
 </form>
 
-<!-- SUCCESS -->
+<!-- SUCCESS / REÇU -->
 <div class="success" id="successBox">
-<div class="success-content">
-<h2>✔ COMMANDE ENVOYÉE</h2>
-<p>Votre commande est reçue 🎮🔥</p>
+  <div class="success-content">
+    <h2>✔ COMMANDE ENVOYÉE</h2>
+    <p id="orderMsg">Votre commande est reçue 🎮🔥</p>
+  </div>
 </div>
-</div>
-
-<script src="script.js"></script>
-
-</body>
-  </html>
