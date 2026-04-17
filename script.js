@@ -1,17 +1,17 @@
-// ===== OPEN FORM =====
+/* ===== OPEN FORM ===== */
 function openForm(product){
 document.getElementById("formBox").style.display="block";
 document.querySelector(".overlay").style.display="block";
 document.getElementById("productInput").value = product;
 }
 
-// ===== CLOSE FORM =====
+/* ===== CLOSE FORM ===== */
 function closeForm(){
 document.getElementById("formBox").style.display="none";
 document.querySelector(".overlay").style.display="none";
 }
 
-// ===== SHOW TARIFS =====
+/* ===== SHOW TARIFS ===== */
 function showGame(){
 let games = document.querySelector(".games");
 let tarifs = document.getElementById("tarifs");
@@ -22,7 +22,7 @@ tarifs.style.display="block";
 }
 }
 
-// ===== RETOUR =====
+/* ===== RETOUR ===== */
 function goBack(){
 let games = document.querySelector(".games");
 let tarifs = document.getElementById("tarifs");
@@ -33,17 +33,17 @@ tarifs.style.display="none";
 }
 }
 
-// ===== THEME =====
+/* ===== THEME ===== */
 function toggleTheme(){
 document.body.classList.toggle("light");
 }
 
-// ===== GENERATE ORDER ID =====
+/* ===== ORDER ID ===== */
 function generateOrderID(){
 return "GZG-" + Date.now() + "-" + Math.floor(Math.random()*1000);
 }
 
-// ===== SEND ORDER =====
+/* ===== SEND ORDER (FORMSPREE SAFE) ===== */
 function sendOrder(e){
 e.preventDefault();
 
@@ -58,10 +58,10 @@ let product = document.getElementById("productInput").value;
 // GENERATE ID
 let orderID = generateOrderID();
 
-// REMOVE OLD AUTO FIELDS
+/* CLEAN OLD AUTO FIELDS */
 form.querySelectorAll(".auto-field").forEach(el => el.remove());
 
-// ADD HIDDEN FIELDS FOR EMAIL
+/* ADD HIDDEN FIELDS FOR EMAIL */
 function addField(name,value){
 let input = document.createElement("input");
 input.type = "hidden";
@@ -77,7 +77,7 @@ addField("ref_copy", ref);
 addField("pseudo_copy", pseudo);
 addField("product_copy", product);
 
-// POPUP RECEIPT
+/* SHOW POPUP RECEIPT */
 document.getElementById("successBox").style.display = "flex";
 document.getElementById("orderMsg").innerHTML =
 "COMMANDE REÇUE 🎮🔥<br><br>" +
@@ -87,9 +87,10 @@ document.getElementById("orderMsg").innerHTML =
 "Référence: " + ref + "<br>" +
 "Produit: " + product;
 
-// CLOSE FORM
-document.getElementById("formBox").style.display="none";
-document.querySelector(".overlay").style.display="none";
+/* CLOSE FORM VISUAL */
+document.getElementById("formBox").style.display = "none";
+document.querySelector(".overlay").style.display = "none";
 
+/* IMPORTANT: allow Formspree submit */
 return true;
 }
