@@ -1,36 +1,40 @@
-/* OPEN POPUP */
-function openForm(product){
-let popup = document.getElementById("formBox");
-let overlay = document.querySelector(".overlay");
+/* LOADING */
+function showLoading(text, cb){
+let l = document.getElementById("loadingScreen");
+let t = document.getElementById("loadingText");
 
-popup.classList.add("show");
-overlay.style.display="block";
-
-document.getElementById("productInput").value = product;
-}
-
-/* CLOSE POPUP */
-function closeForm(){
-let popup = document.getElementById("formBox");
-let overlay = document.querySelector(".overlay");
-
-popup.classList.remove("show");
+t.innerText = text || "Chargement...";
+l.style.display="flex";
 
 setTimeout(()=>{
-overlay.style.display="none";
-},200);
+l.style.display="none";
+if(cb) cb();
+},600);
 }
 
-/* SHOW TARIFS */
+/* GAME */
 function showGame(){
+showLoading("Ouverture...", ()=>{
 document.querySelector(".games").style.display="none";
-document.getElementById("tarifs").style.display="block";
+document.getElementById("tarifs").style.display="grid";
+});
 }
 
-/* RETOUR */
-function goBack(){
-document.querySelector(".games").style.display="flex";
-document.getElementById("tarifs").style.display="none";
+/* OPEN FORM */
+function openForm(product){
+showLoading("Chargement commande...", ()=>{
+document.getElementById("formBox").classList.add("show");
+document.querySelector(".overlay").style.display="block";
+document.getElementById("productInput").value = product;
+});
+}
+
+/* CLOSE */
+function closeForm(){
+showLoading("Fermeture...", ()=>{
+document.getElementById("formBox").classList.remove("show");
+document.querySelector(".overlay").style.display="none";
+});
 }
 
 /* THEME */
@@ -40,49 +44,25 @@ document.body.classList.toggle("light");
 
 /* ID */
 function generateOrderID(){
-return "GZG-" + Date.now() + "-" + Math.floor(Math.random()*1000);
+return "GZG-"+Date.now();
 }
 
-/* SEND ORDER */
+/* SEND */
 function sendOrder(e){
-
 let form = e.target;
 
-let uid = form.querySelector('input[name="uid"]').value;
-let ref = form.querySelector('input[name="ref"]').value;
-let pseudo = form.querySelector('input[name="pseudo"]').value;
+let uid = form.uid.value;
+let pseudo = form.pseudo.value;
+let ref = form.ref.value;
 let product = document.getElementById("productInput").value;
 
-let orderID = generateOrderID();
+let id = generateOrderID();
 
-/* REMOVE OLD */
-form.querySelectorAll(".auto-field").forEach(el => el.remove());
-
-function addField(name,value){
-let input=document.createElement("input");
-input.type="hidden";
-input.name=name;
-input.value=value;
-input.classList.add("auto-field");
-form.appendChild(input);
-}
-
-addField("order_id",orderID);
-addField("uid_copy",uid);
-addField("ref_copy",ref);
-addField("pseudo_copy",pseudo);
-addField("product_copy",product);
-
-/* POPUP */
 document.getElementById("successBox").style.display="flex";
-document.getElementById("orderMsg").innerHTML =
-"COMMANDE REÇUE 🎮🔥<br><br>ID: <b>"+orderID+"</b><br>"+
-"UID: "+uid+"<br>"+
-"Pseudo: "+pseudo+"<br>"+
-"Référence: "+ref+"<br>"+
-"Produit: "+product;
 
-/* CLOSE FORM */
+document.getElementById("orderMsg").innerHTML =
+"ID: "+id+"<br>UID:"+uid+"<br>Pseudo:"+pseudo+"<br>Produit:"+product;
+
 document.getElementById("formBox").classList.remove("show");
 document.querySelector(".overlay").style.display="none";
 
