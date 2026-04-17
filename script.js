@@ -9,20 +9,20 @@ l.style.display="flex";
 setTimeout(()=>{
 l.style.display="none";
 if(cb)cb();
-},600);
+},500);
 }
 
 /* GAME */
 function showGame(){
 showLoading("Ouverture des tarifs...",()=>{
-document.querySelector(".games").style.display="none";
-document.getElementById("tarifs").style.display="grid";
+document.getElementById("games").style.display="none";
+document.getElementById("tarifs").style.display="block";
 });
 }
 
 /* OPEN FORM */
 function openForm(product){
-showLoading("Préparation commande...",()=>{
+showLoading("Chargement commande...",()=>{
 document.getElementById("formBox").classList.add("show");
 document.querySelector(".overlay").style.display="block";
 document.getElementById("productInput").value=product;
@@ -31,10 +31,8 @@ document.getElementById("productInput").value=product;
 
 /* CLOSE */
 function closeForm(){
-showLoading("Fermeture...",()=>{
 document.getElementById("formBox").classList.remove("show");
 document.querySelector(".overlay").style.display="none";
-});
 }
 
 /* THEME */
