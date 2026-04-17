@@ -1,11 +1,51 @@
 /* RESET */
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-/* BACKGROUND ROG */
+/* ===== BACKGROUND ROG STYLE ===== */
 body{
-background:#05050a;
+font-family:Arial;
 color:white;
-overflow-x:hidden;
+display:flex;
+justify-content:center;
+
+background:
+radial-gradient(circle at 30% 20%, rgba(255,0,80,0.15), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(0,255,200,0.12), transparent 40%),
+linear-gradient(135deg, #000000, #0a0014 50%, #120000);
+}
+
+/* GLOW */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 30%, rgba(255,0,60,0.25), transparent 50%),
+radial-gradient(circle at 80% 80%, rgba(0,255,200,0.15), transparent 50%);
+z-index:-1;
+pointer-events:none;
+}
+
+/* SUBTLE DEPTH */
+body::after{
+content:"";
+position:fixed;
+inset:0;
+background:
+linear-gradient(160deg, transparent 60%, rgba(255,0,60,0.08)),
+linear-gradient(20deg, transparent 60%, rgba(0,255,200,0.06));
+z-index:-1;
+pointer-events:none;
+}
+
+/* WRAPPER */
+.wrapper{
+width:100%;
+max-width:420px;
 }
 
 /* HEADER */
@@ -14,102 +54,39 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 padding:10px;
-background:#0d0d14;
+background:rgba(10,0,20,0.6);
+backdrop-filter: blur(10px);
 }
 
-.logo{width:35px;border-radius:50%;}
-h1{font-size:14px;}
-
-/* GAMES */
-.games{
-display:flex;
-justify-content:space-around;
-margin-top:40px;
+/* LOGO */
+.logo{
+width:34px;
+height:34px;
+border-radius:50%;
+object-fit:cover;
 }
 
-.game{text-align:center;cursor:pointer;}
-.game img{width:120px;border-radius:12px;}
-
-/* TARIFS */
-.tarifs{
-display:none;
-padding:10px;
-}
-
-.section-title{
-margin:15px 0 10px;
-color:#ff004c;
-}
-
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-}
-
-.card{
-background:#111827;
-padding:10px;
-border-radius:10px;
+/* TITLE */
+.title{
+flex:1;
 text-align:center;
+font-size:14px;
+font-weight:bold;
+}
+
+/* BACK */
+.back{
+color:#22c55e;
+font-size:13px;
 cursor:pointer;
 }
 
-.card img{width:50px;}
-
-/* OVERLAY */
-.overlay{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.7);
-z-index:10;
-}
-
-/* POPUP */
-.popup{
-display:none;
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:#0f172a;
-padding:20px;
-border-radius:12px;
-width:90%;
-max-width:400px;
-z-index:20;
-}
-
-.popup.show{display:block;}
-
-/* INPUT */
-input{
-width:100%;
-padding:10px;
-margin:5px 0;
-background:#111;
-border:none;
-color:white;
-}
-
-/* BUTTON */
-button{
-width:100%;
-padding:10px;
-background:#ff004c;
-border:none;
-color:white;
-}
-
-/* SUCCESS */
-.success{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
+/* THEME */
+.theme-toggle{
+background:#1e293b;
+padding:6px 9px;
+border-radius:50%;
+cursor:pointer;
 }
 
 /* FACEBOOK */
@@ -117,8 +94,8 @@ align-items:center;
 position:fixed;
 bottom:15px;
 left:15px;
-width:45px;
-height:45px;
+width:42px;
+height:42px;
 background:#1877f2;
 border-radius:50%;
 display:flex;
@@ -127,25 +104,159 @@ justify-content:center;
 z-index:9999;
 }
 
-/* LOADING */
-#loadingScreen{
+/* GAMES */
+.games{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:25px;
+margin-top:30px;
+}
+
+.game img{
+width:150px;
+border-radius:12px;
+pointer-events:none;
+}
+
+/* TARIFS */
+.container{
+display:none;
+padding:10px;
+z-index:1;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.06);
+backdrop-filter: blur(8px);
+border-radius:10px;
+padding:10px;
+text-align:center;
+cursor:pointer;
+transition:0.2s;
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+.card img{
+width:45px;
+height:45px;
+}
+
+.price{
+color:#22c55e;
+font-weight:bold;
+}
+
+/* OVERLAY */
+.overlay{
+display:none;
 position:fixed;
 inset:0;
+background:rgba(0,0,0,0.75);
+z-index:9998;
+}
+
+/* ===== POPUP FLY-IN ===== */
+.popup{
 display:none;
-background:black;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0.8);
+background:#0f172a;
+width:92%;
+max-width:450px;
+padding:22px;
+border-radius:16px;
+z-index:9999;
+opacity:0;
+transition:0.25s ease;
+}
+
+.popup.show{
+display:block;
+opacity:1;
+transform:translate(-50%,-50%) scale(1);
+animation:flyIn 0.35s ease;
+}
+
+@keyframes flyIn{
+0%{
+transform:translate(-50%,20%) scale(0.8);
+opacity:0;
+}
+100%{
+transform:translate(-50%,-50%) scale(1);
+opacity:1;
+}
+}
+
+/* INPUT */
+.popup input{
+width:100%;
+padding:12px;
+margin:7px 0;
+border-radius:8px;
+border:none;
+background:#1e293b;
+color:white;
+}
+
+/* BUTTON */
+.popup button{
+width:100%;
+padding:12px;
+background:#22c55e;
+border:none;
+border-radius:10px;
+font-weight:bold;
+}
+
+/* SUCCESS */
+.success{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.7);
 justify-content:center;
 align-items:center;
-flex-direction:column;
 z-index:9999;
 }
 
-.spinner{
-width:50px;
-height:50px;
-border:4px solid #222;
-border-top:4px solid #ff004c;
-border-radius:50%;
-animation:spin 1s linear infinite;
+.success-content{
+background:#0f172a;
+padding:20px;
+border-radius:12px;
+text-align:center;
 }
 
-@keyframes spin{100%{transform:rotate(360deg);}}
+/* LIGHT MODE */
+body.light{
+background:
+radial-gradient(circle at 30% 20%, rgba(255,0,60,0.08), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(0,120,255,0.08), transparent 40%),
+linear-gradient(135deg,#f5f7ff,#ffffff);
+color:#0f172a;
+}
+
+body.light header,
+body.light .card,
+body.light .popup{
+background:#ffffff;
+color:#0f172a;
+}
+
+body.light .popup input{
+background:#e2e8f0;
+color:#0f172a;
+  }
