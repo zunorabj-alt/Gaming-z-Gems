@@ -103,58 +103,36 @@ card.style.display = text.includes(input) ? "block" : "none";
         SEND ORDER
 ========================= */
 function sendOrder(e){
-e.preventDefault();
+e.preventDefault(); // mbola ilaina
 
 let form = e.target;
 
 let uid = form.querySelector('input[name="uid"]').value;
 let ref = form.querySelector('input[name="ref"]').value;
 let pseudo = form.querySelector('input[name="pseudo"]').value;
+let email = form.querySelector('input[name="email"]').value;
 let product = document.getElementById("productInput").value;
 
-/* add qty */
-product = product + " x" + qty;
+let orderID = "GZG-" + Date.now();
 
-let orderID = generateOrderID();
+/* ADD ORDER ID TO FORMSPREE */
+let idInput = document.createElement("input");
+idInput.type = "hidden";
+idInput.name = "order_id";
+idInput.value = orderID;
+form.appendChild(idInput);
 
-/* REMOVE OLD HIDDEN FIELDS */
-form.querySelectorAll(".auto-field").forEach(el => el.remove());
-
-function addField(name,value){
-let input = document.createElement("input");
-input.type = "hidden";
-input.name = name;
-input.value = value;
-input.classList.add("auto-field");
-form.appendChild(input);
-}
-
-addField("order_id", orderID);
-addField("uid_copy", uid);
-addField("ref_copy", ref);
-addField("pseudo_copy", pseudo);
-addField("product_copy", product);
-
-/* SUCCESS POPUP */
-document.getElementById("successBox").style.display = "flex";
-
+/* SHOW SUCCESS */
+document.getElementById("successBox").style.display="flex";
 document.getElementById("orderMsg").innerHTML =
-"🎮 COMMANDE REÇUE<br><br>" +
-"ID: <b>" + orderID + "</b><br>" +
-"UID: " + uid + "<br>" +
-"Pseudo: " + pseudo + "<br>" +
-"Référence: " + ref + "<br>" +
-"Produit: " + product;
+"✔ COMMANDE ENVOYÉE<br><br>ID: <b>"+orderID+"</b><br>Produit: "+product;
 
-/* CLOSE FORM */
-document.getElementById("formBox").classList.remove("show");
-document.querySelector(".overlay").style.display = "none";
+/* IMPORTANT: submit manually to Formspree */
+setTimeout(()=>{
+form.submit();
+},500);
 
-/* reset qty */
-qty = 1;
-document.getElementById("qtyValue").innerText = qty;
-
-return true;
+return false;
 }
 
 /* =========================
