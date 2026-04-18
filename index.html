@@ -9,10 +9,11 @@
 
 <body>
 
+<div class="wrapper">
+
 <!-- LOADING -->
 <div id="loadingScreen">
-  <div class="spinner"></div>
-  <div class="loading-text" id="loadingText">Chargement...</div>
+  <div class="loading-text">Chargement...</div>
 </div>
 
 <!-- FACEBOOK -->
@@ -20,42 +21,47 @@
 
 <!-- CART -->
 <div class="cart-icon" onclick="openCart()">
-🛒<span id="cartCount">0</span>
+🛒 <span id="cartCount">0</span>
 </div>
 
 <!-- HELP -->
 <div class="help-btn" onclick="openHelp()">?</div>
 
-<!-- HEADER -->
+<!-- HEADER (FIXED SAFE STRUCTURE) -->
 <header>
-  <img src="file_000000005b5871fbaaa1cb6c079a09fd.png" class="logo">
+  <div class="header-left">
+    <img src="file_000000005b5871fbaaa1cb6c079a09fd.png" class="logo">
+  </div>
+
   <div class="title">Gaming-Z Gems</div>
+
   <div class="theme-toggle" onclick="toggleTheme()">☾</div>
 </header>
 
 <!-- SEARCH -->
 <div class="search-bar">
-  <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="🔍 Rechercher un produit...">
+  <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="🔍 Rechercher...">
 </div>
 
 <!-- GAMES -->
 <section class="games" id="games">
 
-<div class="game" onclick="showGame()">
-<img src="raf,360x360,075,t,fafafa_ca443f4786.jpg">
-<h3>Free Fire</h3>
-</div>
+  <div class="game" onclick="showGame()">
+    <img src="raf,360x360,075,t,fafafa_ca443f4786.jpg">
+    <h3>Free Fire</h3>
+  </div>
 
-<div class="game" onclick="showGame()">
-<img src="158789020-unavailable-stamp-unavailable-sign-round-grunge-label.jpg">
-<h3>PUBG</h3>
-</div>
+  <div class="game" onclick="showGame()">
+    <img src="158789020-unavailable-stamp-unavailable-sign-round-grunge-label.jpg">
+    <h3>PUBG</h3>
+  </div>
 
 </section>
 
-<!-- TARIFS -->
+<!-- ================= TARIFS ================= -->
 <section id="tarifs" class="container">
 
+<!-- TOP UP -->
 <h3 class="section-title">🔥 TOP UP</h3>
 <div class="grid">
 
@@ -74,6 +80,7 @@
 
 </div>
 
+<!-- ABONNEMENT -->
 <h3 class="section-title">📦 ABONNEMENT</h3>
 <div class="grid">
 
@@ -82,6 +89,7 @@
 
 </div>
 
+<!-- LEVEL UP -->
 <h3 class="section-title">⚡ LEVEL UP</h3>
 <div class="grid">
 
@@ -94,9 +102,9 @@
 <!-- OVERLAY -->
 <div class="overlay" onclick="closeForm()"></div>
 
-<!-- POPUP FORM -->
+<!-- POPUP -->
 <form action="https://formspree.io/f/xbdqglgd" method="POST"
-class="popup" id="formBox" onsubmit="return sendOrder(event)">
+class="popup" id="formBox" onsubmit="sendOrder(event)">
 
 <h2>FORMULAIRE DE COMMANDE</h2>
 
@@ -117,10 +125,9 @@ class="popup" id="formBox" onsubmit="return sendOrder(event)">
 <input type="hidden" id="productInput" name="product">
 
 <button type="submit">ENVOYER</button>
-<button type="button" onclick="saveReceipt()">Enregistrer reçu</button>
 
-<p style="font-size:11px;margin-top:10px;">
-En cas de problème joignez notre page Facebook pour déclaration.
+<p class="note">
+En cas de problème joignez notre page Facebook.
 </p>
 
 </form>
@@ -135,4 +142,4 @@ En cas de problème joignez notre page Facebook pour déclaration.
 
 <script src="script.js"></script>
 </body>
-  </html>
+                    </html>
