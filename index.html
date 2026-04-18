@@ -9,7 +9,6 @@
 
 <body>
 
-<!-- FACEBOOK -->
 <a class="fb-icon" href="https://www.facebook.com/gaming1z1gems" target="_blank">
 <svg viewBox="0 0 24 24" fill="white">
 <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5C10.5 7 12 5.8 14.3 5.8c1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12H17l-.5 3h-2.5v7A10 10 0 0 0 22 12z"/>
@@ -19,20 +18,20 @@
 <div class="wrapper">
 
 <header>
-
 <img src="file_000000005b5871fbaaa1cb6c079a09fd.png" class="logo">
-
 <div class="title">Gaming-z Gems</div>
 
 <div class="theme-toggle" onclick="toggleTheme()">🌙</div>
 
-<div class="back" onclick="goBack()">← Retour</div>
+<div class="cart-icon" onclick="openCart()">🛒 <span id="cartCount">0</span></div>
 
+<div class="back" onclick="goBack()">← Retour</div>
 </header>
+
+<input type="text" id="searchBar" placeholder="Rechercher..." onkeyup="searchItems()">
 
 <!-- GAMES -->
 <div class="games">
-
 <div class="game" onclick="showGame()">
 <img src="raf,360x360,075,t,fafafa_ca443f4786.jpg">
 <p>Free Fire</p>
@@ -42,7 +41,6 @@
 <img src="158789020-unavailable-stamp-unavailable-sign-round-grunge-label.jpg">
 <p>PUBG</p>
 </div>
-
 </div>
 
 <!-- TARIFS -->
@@ -51,143 +49,88 @@
 <h2>TOP UP</h2>
 <div class="grid">
 
-<div class="card" onclick="openForm('110💎 - 4 900 Ar')">
-<img src="5ed92d5e8e37c95bdd0df84711fd6246.webp">
-<p>110💎</p><span class="price">4 900 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('231💎 - 9 600 Ar')">
-<img src="5ed92d5e8e37c95bdd0df84711fd6246.webp">
-<p>231💎</p><span class="price">9 600 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('341💎 - 13 980 Ar')">
-<img src="5ed92d5e8e37c95bdd0df84711fd6246.webp">
-<p>341💎</p><span class="price">13 980 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('462💎 - 18 600 Ar')">
-<img src="5ed92d5e8e37c95bdd0df84711fd6246.webp">
-<p>462💎</p><span class="price">18 600 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('583💎 - 23 130 Ar')">
-<img src="5ed92d5e8e37c95bdd0df84711fd6246.webp">
-<p>583💎</p><span class="price">23 130 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('693💎 - 27 980 Ar')">
-<img src="5ed92d5e8e37c95bdd0df84711fd6246.webp">
-<p>693💎</p><span class="price">27 980 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('803💎 - 32 800 Ar')">
-<img src="5ed92d5e8e37c95bdd0df84711fd6246.webp">
-<p>803💎</p><span class="price">32 800 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('924💎 - 37 300 Ar')">
-<img src="5ed92d5e8e37c95bdd0df84711fd6246.webp">
-<p>924💎</p><span class="price">37 300 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('1188💎 - 46 730 Ar')">
-<img src="5ed92d5e8e37c95bdd0df84711fd6246.webp">
-<p>1188💎</p><span class="price">46 730 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('1419💎 - 55 700 Ar')">
-<img src="5ed92d5e8e37c95bdd0df84711fd6246.webp">
-<p>1419💎</p><span class="price">55 700 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('1650💎 - 65 430 Ar')">
-<img src="5ed92d5e8e37c95bdd0df84711fd6246.webp">
-<p>1650💎</p><span class="price">65 430 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('2420💎 - 92 730 Ar')">
-<img src="5ed92d5e8e37c95bdd0df84711fd6246.webp">
-<p>2420💎</p><span class="price">92 730 Ar</span>
-</div>
+<div class="card"><img src="5ed92d5e8e37c95bdd0df84711fd6246.webp"><p>110💎</p><span class="price">4 900 Ar</span><button onclick="addToCart(event,'110💎 - 4 900 Ar')">Au panier</button></div>
+<div class="card"><img src="5ed92d5e8e37c95bdd0df84711fd6246.webp"><p>231💎</p><span class="price">9 600 Ar</span><button onclick="addToCart(event,'231💎 - 9 600 Ar')">Au panier</button></div>
+<div class="card"><img src="5ed92d5e8e37c95bdd0df84711fd6246.webp"><p>341💎</p><span class="price">13 980 Ar</span><button onclick="addToCart(event,'341💎 - 13 980 Ar')">Au panier</button></div>
+<div class="card"><img src="5ed92d5e8e37c95bdd0df84711fd6246.webp"><p>462💎</p><span class="price">18 600 Ar</span><button onclick="addToCart(event,'462💎 - 18 600 Ar')">Au panier</button></div>
+<div class="card"><img src="5ed92d5e8e37c95bdd0df84711fd6246.webp"><p>583💎</p><span class="price">23 130 Ar</span><button onclick="addToCart(event,'583💎 - 23 130 Ar')">Au panier</button></div>
+<div class="card"><img src="5ed92d5e8e37c95bdd0df84711fd6246.webp"><p>693💎</p><span class="price">27 980 Ar</span><button onclick="addToCart(event,'693💎 - 27 980 Ar')">Au panier</button></div>
+<div class="card"><img src="5ed92d5e8e37c95bdd0df84711fd6246.webp"><p>803💎</p><span class="price">32 800 Ar</span><button onclick="addToCart(event,'803💎 - 32 800 Ar')">Au panier</button></div>
+<div class="card"><img src="5ed92d5e8e37c95bdd0df84711fd6246.webp"><p>924💎</p><span class="price">37 300 Ar</span><button onclick="addToCart(event,'924💎 - 37 300 Ar')">Au panier</button></div>
+<div class="card"><img src="5ed92d5e8e37c95bdd0df84711fd6246.webp"><p>1188💎</p><span class="price">46 730 Ar</span><button onclick="addToCart(event,'1188💎 - 46 730 Ar')">Au panier</button></div>
+<div class="card"><img src="5ed92d5e8e37c95bdd0df84711fd6246.webp"><p>1419💎</p><span class="price">55 700 Ar</span><button onclick="addToCart(event,'1419💎 - 55 700 Ar')">Au panier</button></div>
+<div class="card"><img src="5ed92d5e8e37c95bdd0df84711fd6246.webp"><p>1650💎</p><span class="price">65 430 Ar</span><button onclick="addToCart(event,'1650💎 - 65 430 Ar')">Au panier</button></div>
+<div class="card"><img src="5ed92d5e8e37c95bdd0df84711fd6246.webp"><p>2420💎</p><span class="price">92 730 Ar</span><button onclick="addToCart(event,'2420💎 - 92 730 Ar')">Au panier</button></div>
 
 </div>
 
 <h2>LEVEL UP</h2>
 <div class="grid">
 
-<div class="card" onclick="openForm('Niv6 - 3 400 Ar')">
-<img src="i7lyzec0hudw1saehonem.webp">
-<p>Niv6</p><span class="price">3 400 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('Niv10-25 - 4 300 Ar')">
-<img src="i7lyzec0hudw1saehonem.webp">
-<p>Niv10-25</p><span class="price">4 300 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('Niv30 - 6 000 Ar')">
-<img src="i7lyzec0hudw1saehonem.webp">
-<p>Niv30</p><span class="price">6 000 Ar</span>
-</div>
-
-<div class="card" onclick="openForm('Full pack - 25 000 Ar')">
-<img src="i7lyzec0hudw1saehonem.webp">
-<p>Full pack</p><span class="price">25 000 Ar</span>
-</div>
+<div class="card"><img src="i7lyzec0hudw1saehonem.webp"><p>Niv6</p><span class="price">3 400 Ar</span><button onclick="addToCart(event,'Niv6 - 3 400 Ar')">Au panier</button></div>
+<div class="card"><img src="i7lyzec0hudw1saehonem.webp"><p>Niv10-25</p><span class="price">4 300 Ar</span><button onclick="addToCart(event,'Niv10-25 - 4 300 Ar')">Au panier</button></div>
+<div class="card"><img src="i7lyzec0hudw1saehonem.webp"><p>Niv30</p><span class="price">6 000 Ar</span><button onclick="addToCart(event,'Niv30 - 6 000 Ar')">Au panier</button></div>
+<div class="card"><img src="i7lyzec0hudw1saehonem.webp"><p>Full pack</p><span class="price">25 000 Ar</span><button onclick="addToCart(event,'Full pack - 25 000 Ar')">Au panier</button></div>
 
 </div>
 
 <h2>ABONNEMENT</h2>
 <div class="grid">
 
-<div class="card" onclick="openForm('Weekly - 10 500 Ar')">
-<img src="oss-a4dc82551f55d986ea4bab3e8521c172.png">
-<p>Weekly</p><span class="price">10 500 Ar</span>
-</div>
+<div class="card"><img src="oss-a4dc82551f55d986ea4bab3e8521c172.png"><p>Weekly</p><span class="price">10 500 Ar</span><button onclick="addToCart(event,'Weekly - 10 500 Ar')">Au panier</button></div>
+<div class="card"><img src="oss-3c8ac1d57fcaeb222b2fe02d9f8cc5d8.png"><p>Monthly</p><span class="price">47 000 Ar</span><button onclick="addToCart(event,'Monthly - 47 000 Ar')">Au panier</button></div>
 
-<div class="card" onclick="openForm('Monthly - 47 000 Ar')">
-<img src="oss-3c8ac1d57fcaeb222b2fe02d9f8cc5d8.png">
-<p>Monthly</p><span class="price">47 000 Ar</span>
 </div>
 
 </div>
 
+<!-- PANIER -->
+<div class="cart-box" id="cartBox">
+<h2>🛒 Panier</h2>
+<div id="cartItems"></div>
+<button onclick="closeCart()">Fermer</button>
 </div>
 
 <!-- OVERLAY -->
 <div class="overlay" onclick="closeForm()"></div>
 
 <!-- FORM -->
-<form action="https://formspree.io/f/xbdqglgd" method="POST"
-class="popup" id="formBox" onsubmit="return sendOrder(event)">
+<form class="popup" id="formBox" onsubmit="return sendOrder(event)">
 
-<h2>🎮 FORMULAIRE DE COMMANDE</h2>
+<h2>🎮 FORMULAIRE</h2>
 
-<p class="info">
-Numéro : 032 97 683 76<br>
-Nom : JEAN FREDERIC
-</p>
+<div class="product-line">
+<span id="selectedProduct"></span>
 
-<input type="text" name="uid" placeholder="UID du compte" required>
-<input type="text" name="ref" placeholder="Référence paiement" required>
+<div class="qty">
+<button type="button" onclick="changeQty(-1)">-</button>
+<span id="qty">1</span>
+<button type="button" onclick="changeQty(1)">+</button>
+</div>
+</div>
+
+<p>0329768376<br><b>JEAN FREDERIC</b></p>
+
+<input type="text" name="uid" placeholder="UID" required>
 <input type="text" name="pseudo" placeholder="Pseudo" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="text" name="ref" placeholder="Référence" required>
 
-<input type="hidden" name="product" id="productInput">
-
-<p class="msg">⚡ Livraison rapide 🎮🔥</p>
+<input type="hidden" id="productInput">
 
 <button type="submit">Envoyer</button>
+<button type="button" onclick="downloadReceipt()">📄 Reçu</button>
 
 </form>
 
-<!-- SUCCESS -->
 <div class="success" id="successBox">
 <div class="success-content">
 <h2>✔ COMMANDE ENVOYÉE</h2>
-<p id="orderMsg">Commande reçue 🎮🔥</p>
+<p id="orderMsg"></p>
 </div>
 </div>
+
+<div class="help-btn" onclick="openHelp()">❓</div>
 
 <script src="script.js"></script>
 
