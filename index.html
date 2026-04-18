@@ -17,25 +17,32 @@
 </div>
 
 <!-- FACEBOOK -->
-<a class="fb-icon" href="https://www.facebook.com/gaming1z1gems" target="_blank">f</a>
-
-<!-- CART -->
-<div class="cart-icon" onclick="openCart()">
-🛒 <span id="cartCount">0</span>
-</div>
+<a class="fb-icon" href="https://www.facebook.com/gaming1z1gems" target="_blank">
+<svg viewBox="0 0 24 24" class="fb-svg">
+<path fill="white" d="M22 12a10 10 0 1 0-11.6 9.9v-7H8v-3h2.4V9.8c0-2.4 1.4-3.7 3.6-3.7 1 0 2 .1 2 .1v2.3h-1.1c-1.1 0-1.4.7-1.4 1.3V12H16l-.4 3h-2.5v7A10 10 0 0 0 22 12"/>
+</svg>
+</a>
 
 <!-- HELP -->
 <div class="help-btn" onclick="openHelp()">?</div>
 
-<!-- HEADER (FIXED SAFE STRUCTURE) -->
+<!-- CART (BOTTOM SAFE) -->
+<div class="cart-icon" onclick="openCart()">
+🛒 <span id="cartCount">0</span>
+</div>
+
+<!-- HEADER -->
 <header>
-  <div class="header-left">
-    <img src="file_000000005b5871fbaaa1cb6c079a09fd.png" class="logo">
-  </div>
 
-  <div class="title">Gaming-Z Gems</div>
+<img src="file_000000005b5871fbaaa1cb6c079a09fd.png" class="logo">
 
-  <div class="theme-toggle" onclick="toggleTheme()">☾</div>
+<div class="title">Gaming-Z Gems</div>
+
+<!-- MODE SWITCH -->
+<div class="theme-switch" onclick="toggleTheme()">
+<div class="switch-circle"></div>
+</div>
+
 </header>
 
 <!-- SEARCH -->
